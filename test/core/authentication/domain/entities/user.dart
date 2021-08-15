@@ -1,4 +1,4 @@
-import 'package:crimson/core/authentication/domain/entity/user.dart';
+import 'package:flutter_clean_auth_architecture/core/authentication/domain/entity/user.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

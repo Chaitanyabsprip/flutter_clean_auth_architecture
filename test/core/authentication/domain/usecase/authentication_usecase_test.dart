@@ -1,7 +1,7 @@
-import 'package:crimson/core/authentication/domain/entity/credentials.dart';
-import 'package:crimson/core/authentication/domain/entity/user.dart';
-import 'package:crimson/core/authentication/domain/repository/authentication_repository.dart';
-import 'package:crimson/core/authentication/domain/usecase/authentication_usecase.dart';
+import 'package:flutter_clean_auth_architecture/core/authentication/domain/entity/credentials.dart';
+import 'package:flutter_clean_auth_architecture/core/authentication/domain/entity/user.dart';
+import 'package:flutter_clean_auth_architecture/core/authentication/domain/repository/authentication_repository.dart';
+import 'package:flutter_clean_auth_architecture/core/authentication/domain/usecase/authentication_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

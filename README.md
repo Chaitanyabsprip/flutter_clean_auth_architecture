@@ -1,4 +1,4 @@
-# crimson
+# flutter_clean_auth_architecture
 
 A new Flutter project.
 

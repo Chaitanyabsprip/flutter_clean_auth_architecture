@@ -1,5 +1,5 @@
-import 'package:crimson/core/authentication/domain/entity/credentials.dart';
-import 'package:crimson/core/error/exceptions.dart';
+import 'package:flutter_clean_auth_architecture/core/authentication/domain/entity/credentials.dart';
+import 'package:flutter_clean_auth_architecture/core/error/exceptions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

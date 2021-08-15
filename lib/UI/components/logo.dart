@@ -46,7 +46,7 @@ class Logo extends StatelessWidget {
         padding: padding,
         color: color,
         child: Text(
-          "Crimson",
+          "flutter_clean_auth_architecture",
           style: style,
         ),
       ),

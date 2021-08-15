@@ -13,10 +13,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await setupLocator();
-  runApp(Crimson());
+  runApp(flutter_clean_auth_architecture());
 }
 
-class Crimson extends StatelessWidget {
+class flutter_clean_auth_architecture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
