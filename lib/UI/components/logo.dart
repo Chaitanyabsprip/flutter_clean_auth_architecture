@@ -1,3 +1,4 @@
+
 import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
@@ -25,8 +26,8 @@ class Logo extends StatelessWidget {
       top: 0.0,
       bottom: 0.00,
     ),
-    this.height = 50,
-    this.width = 115,
+    this.height = 40,
+    this.width = 120,
     this.style = const TextStyle(
       fontFamily: "Roboto",
       fontSize: 24,
@@ -46,7 +47,7 @@ class Logo extends StatelessWidget {
         padding: padding,
         color: color,
         child: Text(
-          "flutter_clean_auth_architecture",
+          "Crimson",
           style: style,
         ),
       ),

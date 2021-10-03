@@ -13,11 +13,11 @@ class NullUser extends UserModel {
 
 class UserModel extends User {
   UserModel({
-    required Email email,
-    required Name name,
-    required String uid,
+    Name? name,
     bool emailVerified = false,
     int? age,
+    required Email email,
+    required String uid,
   }) : super(
           age: age,
           email: email,
@@ -30,24 +30,16 @@ class UserModel extends User {
     return UserModel(
         age: jsonMap['age'],
         email: Email(jsonMap['email']),
-        name: Name(
-          first: jsonMap['name']['first'],
-          middle: jsonMap['name']['first'],
-          last: jsonMap['name']['last'],
-        ),
+        name: Name.fromString(jsonMap["name"]),
         uid: jsonMap['uid']);
   }
 
   Map get toJson {
     return {
       'age': age,
-      'email': email.toString(),
+      'email': email.value,
       'emailVerified': emailVerified,
-      'name': {
-        'first': name.first,
-        'middle': name.middle,
-        'last': name.last,
-      },
+      'name': name.toString(),
       'uid': uid,
     };
   }

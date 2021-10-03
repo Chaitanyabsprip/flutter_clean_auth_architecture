@@ -17,10 +17,11 @@ Future<void> setupLocator() async {
 void slAuthInit() {
   // Authentication
   GetIt.I.registerSingleton<FirebaseAuth>(FirebaseAuth.instance);
+  GetIt.I.registerFactory<GoogleCredentials>(() => GoogleCredentials());
   GetIt.I.registerFactory<GoogleAuthentication>(
     () => GoogleAuthentication(
-      authInstance: GetIt.I.get<FirebaseAuth>(),
-    ),
+        authInstance: GetIt.I.get<FirebaseAuth>(),
+        googleCredentials: GetIt.I.get<GoogleCredentials>()),
   );
   GetIt.I.registerFactoryParam<EmailAuthentication, Email, Password>(
     (

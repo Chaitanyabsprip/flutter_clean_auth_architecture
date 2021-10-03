@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'UI/components/entry_delegate.dart';
-import 'core/authentication/PLoC/authentication_bloc.dart';
-import 'core/authentication/PLoC/authentication_states.dart';
+import 'core/authentication/PLoC/authentication_bloc/authentication_bloc.dart';
+import 'core/authentication/PLoC/authentication_bloc/authentication_states.dart';
 import 'core/authentication/domain/usecase/authentication_usecase.dart';
 import 'injection.dart';
 
@@ -13,10 +13,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await setupLocator();
-  runApp(flutter_clean_auth_architecture());
+  runApp(FlutterCleanAuthArchitecture());
 }
 
-class flutter_clean_auth_architecture extends StatelessWidget {
+class FlutterCleanAuthArchitecture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -1,16 +1,10 @@
-import '../entity/credentials.dart';
-
 import '../../data/datasources/authentication_service.dart';
+import '../entity/credentials.dart';
 import '../entity/user.dart';
 
 abstract class AuthenticationRepository {
-  set authMethod(AuthenticationService authService);
   Future<User> currentUser();
-  Future<User> signInWithEmail({
-    required Email email,
-    required Password password,
-  });
-  Future<User> signInWithGoogle();
+  Future<User> signIn({required AuthenticationService authenticationService});
   Future<User> signUp({
     required Email email,
     required Password password,

@@ -55,13 +55,13 @@ class Name extends Equatable {
 class User extends Equatable {
   bool emailVerified;
   final Email email;
-  final Name name;
+  final Name? name;
   final String uid;
   final int? age;
 
   User({
     required this.age,
-    required this.name,
+    this.name,
     required this.email,
     required this.uid,
     this.emailVerified = false,
@@ -71,5 +71,5 @@ class User extends Equatable {
   List<Object?> get props => [uid];
 
   @override
-  bool? get stringify => true;
+  bool get stringify => true;
 }

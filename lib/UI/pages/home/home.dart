@@ -1,8 +1,13 @@
-import '../../components/calendar_scroll_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_listview/infinite_listview.dart';
+import 'package:loggy/loggy.dart';
 
-class HomePage extends StatelessWidget {
+import '../../../core/authentication/PLoC/authentication_bloc/authentication_bloc.dart';
+import '../../../core/authentication/PLoC/authentication_bloc/authentication_events.dart';
+import '../../components/calendar_scroll_view.dart';
+
+class HomePage extends StatelessWidget with UiLoggy {
   final ScrollController healthTipScrollController = ScrollController();
 
   final InfiniteScrollController calendarScrollController =
@@ -23,7 +28,11 @@ class HomePage extends StatelessWidget {
               iconSize: 32,
               color: Colors.white.withOpacity(0.3),
               icon: Icon(Icons.menu),
-              onPressed: () {},
+              onPressed: () {
+                loggy.info("This Button Pressed");
+                loggy.info("");
+                BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+              },
             ),
           ),
         ],

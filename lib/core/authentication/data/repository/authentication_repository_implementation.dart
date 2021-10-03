@@ -1,13 +1,13 @@
 import '../../domain/entity/credentials.dart';
-
 import '../../domain/entity/user.dart';
 import '../../domain/repository/authentication_repository.dart';
 import '../datasources/authentication_service.dart';
+import '../datasources/null_authentication_service.dart';
 import '../models/user_model.dart';
 
 class AuthenticationRepositoryImplementation
     implements AuthenticationRepository {
-  late AuthenticationService _authService;
+  AuthenticationService _authService = NullAuthenticationService();
   final AuthenticationDelegate _authDelegate;
 
   AuthenticationRepositoryImplementation({
@@ -15,34 +15,26 @@ class AuthenticationRepositoryImplementation
   }) : _authDelegate = authDelegate;
 
   @override
-  set authMethod(AuthenticationService authService) =>
-      _authService = authService;
-
-  @override
   Future<void> forgotPassword({required Email email}) async =>
       await _authDelegate.forgotPassword(email: email.value);
 
   @override
   Stream<User> authState() =>
-      Stream.castFrom<UserModel, User>(_authService.authState);
+      Stream.castFrom<UserModel, User>(_authDelegate.authStateChanges);
 
   @override
-  Future<User> currentUser() async => _authDelegate.user;
+  Future<User> currentUser() async => await _authDelegate.user;
 
   @override
-  Future<User> signInWithEmail({
-    required Email email,
-    required Password password,
-  }) async =>
-      _authService.signIn();
-
-  @override
-  Future<User> signInWithGoogle() async {
-    return await _authService.signIn();
+  Future<User> signIn({required AuthenticationService authenticationService}) {
+    _authService = authenticationService;
+    return _authService.signIn();
   }
 
   @override
-  Future<void> signOut() async => _authService.signOut();
+  Future<void> signOut() async {
+    return _authService.signOut(); // distinguish no service chosen
+  }
 
   @override
   Future<User> signUp({

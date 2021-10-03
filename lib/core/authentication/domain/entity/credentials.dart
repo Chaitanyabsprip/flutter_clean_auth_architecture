@@ -27,7 +27,7 @@ class Email extends Equatable {
   List<Object?> get props => [_value];
 
   @override
-  bool? get stringify => true;
+  bool get stringify => true;
 }
 
 class Password extends Equatable {
@@ -55,5 +55,5 @@ class Password extends Equatable {
   List<Object?> get props => [_value];
 
   @override
-  bool? get stringify => true;
+  bool get stringify => true;
 }

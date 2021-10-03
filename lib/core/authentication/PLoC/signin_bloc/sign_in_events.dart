@@ -5,16 +5,28 @@ abstract class SignInEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class EmailChanged extends SignInEvent {
+class SignInEmailChanged extends SignInEvent {
   final String email;
 
-  EmailChanged(this.email);
+  SignInEmailChanged(this.email);
 
   @override
   List<Object?> get props => [email];
 
   @override
-  bool? get stringify => true;
+  bool get stringify => true;
+}
+
+class SignInPasswordChanged extends SignInEvent {
+  final String password;
+
+  SignInPasswordChanged(this.password);
+
+  @override
+  List<Object?> get props => [password];
+
+  @override
+  bool get stringify => true;
 }
 
 class SignInWithCredentialsPressed extends SignInEvent {
@@ -27,22 +39,22 @@ class SignInWithCredentialsPressed extends SignInEvent {
   List<Object?> get props => [email, password];
 
   @override
-  bool? get stringify => true;
+  bool get stringify => true;
+}
+
+class ForgotPasswordButtonPressed extends SignInEvent {
+  final String email;
+
+  ForgotPasswordButtonPressed({required this.email});
+
+  @override
+  List<Object?> get props => [email];
+
+  @override
+  bool get stringify => true;
 }
 
 class SignInWithGooglePressed extends SignInEvent {}
-
-class PasswordChanged extends SignInEvent {
-  final String password;
-
-  PasswordChanged(this.password);
-
-  @override
-  List<Object?> get props => [password];
-
-  @override
-  bool? get stringify => true;
-}
 
 class Submitted extends SignInEvent {
   final String email;
@@ -54,5 +66,5 @@ class Submitted extends SignInEvent {
   List<Object?> get props => [email, password];
 
   @override
-  bool? get stringify => true;
+  bool get stringify => true;
 }
