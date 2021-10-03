@@ -1,4 +1,3 @@
-
 import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
@@ -47,7 +46,7 @@ class Logo extends StatelessWidget {
         padding: padding,
         color: color,
         child: Text(
-          "Crimson",
+          "ThisApp",
           style: style,
         ),
       ),
